@@ -1,0 +1,44 @@
+- create repo folder
+- enter repo folder
+- mkvirtualenv <ve>
+- deactivate
+- edit ~/venv/<ve>/bin/postactivate (with nano)
+- generate SECRET_KEY
+- add SECRET_KEY
+- add DJANGO_SETTINGS_MODULE
+- add PYTHONPATH
+- edit ~/venv/<ve>/bin/predeactivate
+- add unset for each new key
+- activate <ve>
+- pip install django==<version>
+- pip install django-bootstrap3
+- create django project
+- git init
+- touch .gitignore
+- edit and prepare .gitignore
+- echo "# <project name>" >> README.md
+- git add .
+- git commit -m "first commit"
+- git remote add origin <repo_path from github>
+- git push -u origin master
+- remember (user: acolon, pwd:@Pit_#git01)
+- verify github.com
+- enter project folder
+- create superuser
+- makemigrations
+- migrate
+- create workspace project in sublime text
+- enter config folder (same project name)
+- create settings folder
+- move settings.py to settings folder
+- rename settings.py to base.py
+- edit base.py and remove dev params
+- create local.py
+- from .base import *
+- DEBUG=True
+- create and edit prod.py
+- runserver
+- try dev site
+- git add .
+- git commit -m "project created"
+- git push -u origin master
