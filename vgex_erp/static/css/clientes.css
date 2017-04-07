@@ -1,0 +1,74 @@
+.center {
+    margin:auto;
+    width: 95%;
+}
+
+#application {
+    margin-top: 60px;
+}
+
+#app_menu {
+    border-style: groove;
+    border-radius: 3px;
+    background-color: lightblue;
+}
+
+.app_actions {
+    text-align: right;
+}
+
+.app_func_hdr {
+    border-bottom-style: double;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+}
+
+.list-group {
+    background-color: lightblue;
+}
+
+.tbl_hdr_actions {
+    text-align: right;
+}
+
+.tbl_select_all {
+    width: 20px;
+}
+
+.tbl_record_options {
+    text-align: center;
+}
+
+.tbl_number_field {
+    text-align: right;
+}
+
+.tbl_record_amount {
+    text-align: right;
+}
+
+.tbl_field_label {
+    width: 100px;
+    font-weight: bold;
+}
+
+.tbl_field_value {
+    width: 300px;
+}
+
+.table_non_fluid {
+    width: auto !important;
+}
+
+#tbl_cat_select {
+    width: 5%;
+}
+
+#tbl_cat_title {
+    width: 60%;
+}
+
+#tbl_cat_budget {
+    width: 25%;
+}

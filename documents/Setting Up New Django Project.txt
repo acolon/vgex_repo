@@ -42,3 +42,6 @@
 - git add .
 - git commit -m "project created"
 - git push -u origin master
+
+# publishing on pythonanywhere.com
+- make sure environment variables are set in the postactivate of the venv
