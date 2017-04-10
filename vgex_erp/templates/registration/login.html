@@ -7,26 +7,34 @@
 
 {% if next %}
 	{% if user.is_authenticated %}
-		<p>Check your permissions</p>
+		<p>
+		Su usuario no tiene los permisos requeridos 
+		para acceder a esta página.  Contacte a su 
+		administrador
+		</p>
 	{% else %}
-		<p>Please login</p>
+		<p>Favor ingrese su usuario y contraseña</p>
 	{% endif %}
 {% endif %}
 
 <form method="post" action="{% url 'login' %}"> 
 	{% csrf_token %} 
-	<table> 
+	<table class="table table-striped table-hover table-condensed">
 		<tr>
-			<td>{{ form.username.label_tag }}</td>
-			<td>{{ form.username }}</td>
+			<td>Usuario</td>
+			<td>
+				{{ form.username }}
+			</td>
 		</tr>
 		<tr>
-			<td>{{ form.password.label_tag }}</td>
-			<td>{{ form.password }}</td>
+			<td>Contraseña</td>
+			<td>
+				{{ form.password }}
+			</td>
 		</tr>
 	</table>
 	<input type="submit" value="login" /> 
-	<input type="hidden" name="next" value="{{ next }}" /> 
+	<input type="hidden" name="next" value="{{ next }}">
 </form> 
 
 {% endblock %}

@@ -20,5 +20,6 @@ from .views import TempView
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('django.contrib.auth.urls')), 
-    url(r'^$', TempView.as_view(), name='vgex_root')
+    url(r'^$', TempView.as_view(), name='vgex_root'),
+    url(r'', include('clientes.urls', namespace='clientes')), 
 ]
