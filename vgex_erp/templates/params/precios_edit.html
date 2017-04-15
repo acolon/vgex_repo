@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block title %}
+    {% if object %}
+        Modificar Precio
+    {% else %}
+        Nuevo Precio
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="row"><div class="col-sm-12">
+        <h1>
+            {% if precio_galon %}
+                Modificar Precio
+            {% else %}
+                Nuevo Precio
+            {% endif %}
+        </h1>
+    </div></div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <form action="" method="post" class="form">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% buttons %}
+                    <button type="submit" class="btn btn-primary">
+                        {% bootstrap_icon "star" %}&nbsp;Grabar
+                    </button>
+                {% endbuttons %}
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block domready %}
+
+$( "#id_fecha" ).datepicker({
+      showButtonPanel: true,
+      dateFormat: "yy-mm-dd",
+      onClose: function(dateText, inst) {
+        $("#id_precio").focus();
+      }
+});
+{% if precio_galon %}
+    $("#id_precio").focus();
+{% else %}
+    $("#id_fecha").focus();
+{% endif %}
+
+{% endblock %}

@@ -44,35 +44,47 @@
                     <div class="navbar-header">
                       <a class="navbar-brand" href="#">Verbagas Express</a>
                     </div>
-                    <ul id="main_menu" class="nav navbar-nav">
-                        <li>
-                            <a href="{% url 'clientes:list' %}">Clientes</a>
-                        </li>
-                        <li>
-                            <a href="#">Facturacion</a>
-                        </li>
-                        <li>
-                            <a href="#">Cobros</a>
-                        </li>
-                        <li>
-                            <a href="#">Operaciones</a>
-                        </li>
-                        <li>
-                            <a href="#">Configuración</a>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        {% if request.user.is_authenticated %}
-                            <!-- Cómo cambiar este enlace? -->
-                            <li><a href="#">Hola {{ user.first_name }}!</a></li>
-                            {% if user.is_staff %}
-                                <li><a href="/admin/">Administración</a></li>
-                            {% endif %}
-                            <li><a href="{% url 'logout' %}">Cerrar Sessión</a></li>
-                        {% else %}
-                            <li><a href="{% url 'login' %}">Iniciar Sessión</a></li>
-                        {% endif %}
-                    </ul>
+
+    <ul id="main_menu" class="nav navbar-nav">
+        <li>
+            <a href="{% url 'clientes:list' %}">Clientes</a>
+        </li>
+        <li>
+            <a href="#">Facturacion</a>
+        </li>
+        <li>
+            <a href="#">Cobros</a>
+        </li>
+        <li>
+            <a href="#">Operaciones</a>
+        </li>
+        <li id="menu_configuracion" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" 
+               href="#">Configuración<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li id="menu_conf_precios">
+                    <a href="{% url 'params:precios_list' %}">Precios por Día</a></li>
+                <li id="menu_conf_camiones">
+                    <a href="#">Camiones</a></li>
+                <li id="menu_conf_choferes">
+                    <a href="#">Choferes</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+        {% if request.user.is_authenticated %}
+            <!-- Cómo cambiar este enlace? -->
+            <li><a href="#">Hola {{ user.first_name }}!</a></li>
+            {% if user.is_staff %}
+                <li><a href="/admin/">Administración</a></li>
+            {% endif %}
+            <li><a href="{% url 'logout' %}">Cerrar Sessión</a></li>
+        {% else %}
+            <li><a href="{% url 'login' %}">Iniciar Sessión</a></li>
+        {% endif %}
+    </ul>
+
                   </div>
                 </nav>
             </div>

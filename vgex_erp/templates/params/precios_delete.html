@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block title %}Eliminar Precio{% endblock %}
+
+{% block content %}
+
+    <div class="row"><div class="col-sm-4">
+        <h1>Eliminar Precio</h1>
+    </div></div>
+
+    <div class="row"><div class="col-sm-4">
+
+    <table class="table table-bordered table_non_fluid">
+    	<tr>
+    		<td class="tbl_field_label">Fecha</td>
+    		<td class="tbl_field_value">{{ precio_galon.fecha }}</td>
+    	</tr>
+        <tr>
+            <td class='tbl_field_label'>Precio</td>
+            <td class='tbl_field_value'>{{ precio_galon.precio }}</td>
+        </tr>
+    </table>
+
+    </div></div>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>Por favor revisar esta información antes de continuar.</p>
+            <p>Está seguro que desea eliminar este registro?</p>
+            <input type="submit" class"button" value="Confirmar">
+        </form>
+
+{% endblock %}
+
+{% block domready %}
+
+{% endblock %}

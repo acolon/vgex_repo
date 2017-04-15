@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+Precios por Día
+{% endblock %}
+
+{% block app_css %}
+{% endblock app_css %}
+
+{% block content %}
+    <div class="row">
+        <div id="app_header" class="col-sm-12">
+            <h1>
+                Precios por Día
+            </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+
+    <table id="tbl_precios_list" class="table table-striped table-hover table-condensed">
+        <thead class="table_header">
+            <tr>
+                <th>
+                    <a href="{% url 'params:precio_add' %}" class="btn btn-default btn-sm" role="button">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp;Agregar Precio</a>
+                </th>
+                <th></th>
+            </tr>
+            <tr>
+<!-- 
+fecha
+precio
+ -->
+                <th>Fecha</th>
+                <th>Precio</th>
+                <th class="tbl_record_options">...</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in precios_list %}
+                <tr>
+                    <td>{{ item.fecha }}</td>
+                    <td>{{ item.precio }}</td>
+                    <td class="tbl_record_options">
+                        <a href="{% url 'params:precio_edit' item.id %}" title="Modificar Precio">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;
+                        </a>
+                        <a href="{% url 'params:precio_delete' item.id %}" title="Eliminar Precio">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block domready %}
+{% endblock %}

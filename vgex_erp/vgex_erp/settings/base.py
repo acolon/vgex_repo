@@ -51,6 +51,9 @@ INSTALLED_APPS = (
     'bootstrap3',
     'core',
     'clientes',
+    'pedidos',
+    'facturas',
+    'params',
 )
 
 MIDDLEWARE_CLASSES = (

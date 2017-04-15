@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'', include('django.contrib.auth.urls')), 
     url(r'^$', TempView.as_view(), name='vgex_root'),
     url(r'', include('clientes.urls', namespace='clientes')), 
+    url(r'^params/', include('params.urls', namespace='params')), 
 ]
