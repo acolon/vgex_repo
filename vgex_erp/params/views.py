@@ -11,13 +11,13 @@ from .models import PrecioGalon
 
 class PreciosMixin(LoginRequiredMixin):
 	model = PrecioGalon
-	success_url = reverse_lazy('params:precios_list')
-	context_object_name = 'precio_galon'
 
 
 class EditPreciosMixin(PreciosMixin):
 	template_name = 'params/precios_edit.html'
 	fields = [ 'fecha', 'precio' ]
+	success_url = reverse_lazy('params:precios_list')
+	context_object_name = 'precio_galon'
 
 
 # ==================================================
@@ -37,5 +37,5 @@ class PreciosUpdateView(EditPreciosMixin, UpdateView):
 	pass
 
 
-class PreciosDeleteView(PreciosMixin, DeleteView):
+class PreciosDeleteView(EditPreciosMixin, DeleteView):
 	template_name = 'params/precios_delete.html'

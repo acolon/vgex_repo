@@ -23,11 +23,10 @@ TIPO_COMISION_CHOICES = (
 class Vendedor(models.Model):
 
 	nombre = models.CharField(max_length=50)
-	documento = models.CharField(max_length=20)
-	salario = models.DecimalField(max_digits=8, decimal_places=2)
-	meta_galones = models.IntegerField()
-	tipo_comision = models.CharField(max_length=1, 
-			choices=TIPO_COMISION_CHOICES)
+	documento = models.CharField(max_length=20, blank=True)
+	salario = models.DecimalField(max_digits=8, decimal_places=2, default=0)
+	meta_galones = models.IntegerField(default=0)
+	tipo_comision = models.CharField(max_length=1, choices=TIPO_COMISION_CHOICES, blank=True)
 
 	def __str__(self):
 		return self.nombre
@@ -64,6 +63,10 @@ class Cliente(models.Model):
 	fax 		 = models.CharField(max_length=20, blank=True)
 	email 		 = models.EmailField(max_length=100, blank=True)
 	notas 		 = models.TextField(blank=True)
+	referencia 	 = models.CharField(max_length=20, blank=True)
+
+	def __str__(self):
+		return self.nombre
 
 
 class Contacto(models.Model):

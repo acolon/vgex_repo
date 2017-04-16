@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block title %}Eliminar Cliente{% endblock %}
+
+{% block content %}
+
+    <h1>Eliminar Cliente</h1>
+
+    <table class="table table-bordered table_non_fluid">
+    	<tr>
+    		<td class="tbl_field_label">Nombre</td>
+    		<td class="tbl_field_value">{{ cliente.nombre }}</td>
+    	</tr>
+        <tr>
+            <td class='tbl_field_label'>Categoria</td>
+            <td class='tbl_field_value'>{{ cliente.categoria.descripcion }}</td>
+        </tr>
+    	<tr>
+    		<td class='tbl_field_label'>Vendedor</td>
+    		<td class='tbl_field_value'>{{ cliente.vendedor.nombre }}</td>
+    	</tr>
+    </table>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>Por favor revisar la información del cliente</p>
+            <p>Está seguro que desea eliminar este registro?</p>
+            <input type="submit" class"button" value="Confirmar">
+        </form>
+
+{% endblock %}
+
+{% block domready %}
+
+{% endblock %}

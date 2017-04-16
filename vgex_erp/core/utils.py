@@ -1,5 +1,7 @@
 from datetime import date, timedelta, datetime
 
+# ==================================================
+
 def date_to_string(x):
 	return x.isoformat().replace('-','')
 
@@ -40,6 +42,7 @@ def string_to_date(string_date):
 
 	return r
 
+# ==================================================
 
 class DateParserBase:
 
@@ -242,4 +245,5 @@ class DateParser(DateParserBase):
 	def __init__(self, date_arg):
 		super(DateParser, self).__init__(date_arg)
 		self._args = DateArgs(date_arg)
+
 
