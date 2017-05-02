@@ -49,11 +49,13 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'bootstrap3',
+    'rest_framework',
     'core',
     'clientes',
     'pedidos',
     'facturas',
     'params',
+    'ncf',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -99,12 +101,21 @@ DATABASES = {
 }
 
 
+# REST Framework Settings
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAdminUser',
+    ),
+}
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/La_Paz'
 
 USE_I18N = True
 

@@ -66,7 +66,7 @@ class ClienteRow:
 		return self._data[11].strip()
 
 	@property
-	def notas(self):
+	def observacion(self):
 		return self._data[12].strip()
 
 	@property
@@ -122,7 +122,7 @@ class Loader:
 					direccion=obj.direccion,
 					telefono1=obj.telefono1,
 					telefono2=obj.telefono2,
-					notas=obj.notas,
+					observacion=obj.notas,
 					referencia=obj.referencia
 					)
 				cli.save()

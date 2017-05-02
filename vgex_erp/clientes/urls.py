@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from . import views
+from .api import views as api
 
 urlpatterns = [
 
@@ -19,6 +20,11 @@ urlpatterns = [
 		views.ClientesDeleteView.as_view(), 
 		name='delete'), 
 
+	url(r'^clientes/api/nombres/$', 
+		api.ClientesAPIView.as_view(), 
+		name='nombres_api'), 
+	
+	
 	#url(r'^vendedores/$', views.VendedoresListView.as_view(), name='vendedores_list'), 
 
 

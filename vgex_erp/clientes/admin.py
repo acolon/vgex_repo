@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Vendedor, Categoria, TipoContacto, Sector
+from .models import Vendedor, Categoria, TipoContacto, Sector, Municipio
 
 # ==================================================
 # Admin Mixins
@@ -31,4 +31,8 @@ class TipoContactoAdmin(BasicListAdmin, admin.ModelAdmin):
 
 @admin.register(Sector)
 class SectorAdmin(BasicListAdmin, admin.ModelAdmin):
+	pass
+
+@admin.register(Municipio)
+class MunicipipAdmin(BasicListAdmin, admin.ModelAdmin):
 	pass

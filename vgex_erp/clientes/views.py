@@ -3,7 +3,9 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.urlresolvers import reverse_lazy
+from django.utils.text import slugify
 from .models import Cliente, Contacto
+from .forms import ClienteForm
 
 # ==================================================
 # Mixins
@@ -16,11 +18,7 @@ class ClienteMixin(LoginRequiredMixin):
 
 class EditClienteMixin(ClienteMixin):
 	template_name = 'clientes/edit.html'
-	fields = [ 'nombre', 'documento', 'direccion', 
-		'telefono1', 'telefono2', 'fax', 'email', 
-		'sector', 'vendedor', 'categoria', 'descuento',
-		'dias_credito', 'notas' 
-		]
+	form_class = ClienteForm
 
 
 class ContactoMixin(LoginRequiredMixin):
