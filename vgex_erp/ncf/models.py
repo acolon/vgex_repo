@@ -23,9 +23,9 @@ class NcfManager(models.Manager):
 	def none_active(self):
 		ncf = self.get_current()
 		if ncf:
-			return True
-		else:
 			return False
+		else:
+			return True
 
 
 class Ncf(models.Model):
@@ -37,6 +37,6 @@ class Ncf(models.Model):
 	objects = NcfManager()
 
 	def save(self, *args, **kwargs):
-		if self.objects.none_active():
+		if Ncf.objects.none_active():
 			self.activo = True
 		super(Ncf, self).save(*args, **kwargs)

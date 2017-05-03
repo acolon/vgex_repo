@@ -17,6 +17,7 @@ class NcfMixin(LoginRequiredMixin):
 
 class NcfEditMixin(NcfMixin):
 	template_name = 'ncf/edit.html'
+	fields = [ 'primer', 'ultimo' ]
 
 
 # ==================================================

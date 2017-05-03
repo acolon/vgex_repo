@@ -3,7 +3,7 @@
 {% load humanize %}
 
 {% block title %}
-Lista de Clientes
+Talonarios de NCF
 {% endblock %}
 
 {% block app_css %}
@@ -14,19 +14,19 @@ Lista de Clientes
     <div class="row">
         <div id="app_header" class="col-sm-12">
             <h1>
-                Clientes
+                Talonarios NCF
             </h1>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-6">
 
-    <table id="tbl_cliente_list" class="table table-striped table-hover table-condensed">
+    <table id="tbl_ncf" class="table table-striped table-hover table-condensed">
         <thead class="table_header">
             <tr>
                 <th>
-                    <a href="{% url 'clientes:add' %}" class="btn btn-default btn-sm" role="button">
-                        <span class="glyphicon glyphicon-plus"></span>&nbsp;Crear Cliente</a>
+                    <a href="{% url 'ncf:add' %}" class="btn btn-default btn-sm" role="button">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp;Crear Talonario</a>
                 </th>
                 <th></th>
             </tr>
@@ -46,36 +46,23 @@ fax
 email       
 notas       
  -->
-                <th>Nombre</th>
-                <th>Teléfono 1</th>
-                <th>Teléfono 2</th>
-                <th>Vendedor</th>
-                <th>Descuento</th>
-                <th>Dias Crédito</th>
+                <th>Talonario</th>
+                <th>Primer Número</th>
+                <th>Ultimo Número</th>
+                <th>Secuencia</th>
+                <th>Activo</th>
                 <th class="tbl_record_options">...</th>
             </tr>
         </thead>
         <tbody>
-            {% for cliente in object_list %}
+            {% for ncf in object_list %}
                 <tr>
-                    <td>
-                        <a href="{% url 'clientes:edit' cliente.id %}">{{ cliente.nombre }}</a>
-                    </td>
-                    <td>{{ cliente.telefono1 }}</td>
-                    <td>{{ cliente.telefono2 }}</td>
-                    <td>{{ cliente.vendedor.nombre }}</td>
-                    <td>{{ cliente.descuento }}</td>
-                    <td>{{ cliente.dias_credito }}</td>
+                    <td>{{ ncf.id }}</td>
+                    <td>{{ ncf.primer }}</td>
+                    <td>{{ ncf.ultimo }}</td>
+                    <td>{{ ncf.secuencia }}</td>
+                    <td>{{ ncf.activo }}</td>
                     <td class="tbl_record_options">
-                        <a href="{% url 'clientes:edit' cliente.id %}" title="Editar cliente">
-                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;
-                        </a>
-                        <a href="{% url 'clientes:delete' cliente.id %}" title="Eliminar cliente">
-                            <span class="glyphicon glyphicon-trash"></span>&nbsp;
-                        </a>
-                        <a href="#" title="Ver contactos">
-                            <span class="glyphicon glyphicon-th-list"></span>
-                        </a>
                     </td>
                 </tr>
             {% endfor %}
