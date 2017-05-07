@@ -40,3 +40,6 @@ class Ncf(models.Model):
 		if Ncf.objects.none_active():
 			self.activo = True
 		super(Ncf, self).save(*args, **kwargs)
+
+	class Meta:
+		ordering = ( 'primer', )

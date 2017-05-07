@@ -56,6 +56,7 @@ INSTALLED_APPS = (
     'facturas',
     'params',
     'ncf',
+    'rawdata',
 )
 
 MIDDLEWARE_CLASSES = (

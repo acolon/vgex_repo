@@ -29,6 +29,9 @@ class Chofer(models.Model):
 	nombre = models.CharField(max_length=100)
 	activo = models.BooleanField(default=True)
 
+	def __str__(self):
+		return self.nombre
+
 	class Meta:
 		ordering = [ 'nombre' ]
 		verbose_name_plural = 'choferes'
@@ -38,6 +41,9 @@ class Camion(models.Model):
 	ficha = models.CharField(max_length=20)
 	capacidad = models.IntegerField(default=0)
 	activo = models.BooleanField(default=True)
+
+	def __str__(self):
+		return self.ficha
 
 	class Meta:
 		ordering = [ 'ficha' ]

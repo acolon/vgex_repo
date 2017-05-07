@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^params/', include('params.urls', namespace='params')), 
     url(r'^facturas/', include('facturas.urls', namespace='facturas')), 
     url(r'^ncf/', include('ncf.urls', namespace='ncf')), 
+    url(r'^carga_manual/', include('rawdata.urls', namespace='rawdata')), 
 ]

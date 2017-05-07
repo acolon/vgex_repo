@@ -3,9 +3,9 @@
 
 {% block title %}
     {% if object %}
-        Modificar Precio
+        Modificar Factura
     {% else %}
-        Nuevo Precio
+        Crear Factura
     {% endif %}
 {% endblock %}
 
@@ -13,22 +13,22 @@
 
     <div class="row"><div class="col-sm-12">
         <h1>
-            {% if precio_galon %}
-                Modificar Precio
+            {% if object %}
+                Modificar Factura
             {% else %}
-                Nuevo Precio
+                Crear Factura
             {% endif %}
         </h1>
     </div></div>
 
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-6">
             <form action="" method="post" class="form">
                 {% csrf_token %}
                 {% bootstrap_form form %}
                 {% buttons %}
                     <button type="submit" class="btn btn-primary">
-                        {% bootstrap_icon "star" %}&nbsp;Grabar
+                        {% bootstrap_icon "star" %}&nbsp;Grabar Cambios
                     </button>
                 {% endbuttons %}
             </form>
@@ -43,14 +43,10 @@ $( "#id_fecha" ).datepicker({
       showButtonPanel: true,
       dateFormat: "yy-mm-dd",
       onClose: function(dateText, inst) {
-        $("#id_precio").focus();
+        $("#id_condicion").focus();
       }
 });
 
-{% if precio_galon %}
-    $("#id_precio").focus();
-{% else %}
-    $("#id_fecha").focus();
-{% endif %}
+$("#id_numero").focus()
 
 {% endblock %}

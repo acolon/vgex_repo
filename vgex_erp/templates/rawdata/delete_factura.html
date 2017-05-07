@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block title %}Eliminar Factura{% endblock %}
+
+{% block content %}
+
+    <h1>Eliminar Factura</h1>
+
+    <table class="table table-bordered table_non_fluid">
+    	<tr>
+    		<td class="tbl_field_label">Numero</td>
+    		<td class="tbl_field_value">{{ factura.numero }}</td>
+    	</tr>
+        <tr>
+            <td class='tbl_field_label'>Fecha</td>
+            <td class='tbl_field_value'>{{ factura.fecha }}</td>
+        </tr>
+        <tr>
+            <td class='tbl_field_label'>Condición</td>
+            <td class='tbl_field_value'>{{ factura.get_condicion_display }}</td>
+        </tr>
+        <tr>
+            <td class='tbl_field_label'>Cliente</td>
+            <td class='tbl_field_value'>{{ factura.cliente }}</td>
+        </tr>
+        <tr>
+            <td class='tbl_field_label'>Galones</td>
+            <td class='tbl_field_value'>{{ factura.galones }}</td>
+        </tr>
+        <tr>
+            <td class='tbl_field_label'>Precio</td>
+            <td class='tbl_field_value'>{{ factura.precio_galon }}</td>
+        </tr>
+        <tr>
+            <td class='tbl_field_label'>Descuento</td>
+            <td class='tbl_field_value'>{{ factura.descuento }}</td>
+        </tr>
+        <tr>
+            <td class='tbl_field_label'>Monto</td>
+            <td class='tbl_field_value'>{{ factura.monto }}</td>
+        </tr>
+        <tr>
+            <td class='tbl_field_label'>Camión</td>
+            <td class='tbl_field_value'>{{ factura.camion.ficha }}</td>
+        </tr>
+        <tr>
+            <td class='tbl_field_label'>Chofer</td>
+            <td class='tbl_field_value'>{{ factura.chofer.nombre }}</td>
+        </tr>
+        <tr>
+            <td class='tbl_field_label'>Valor Fiscal</td>
+            <td class='tbl_field_value'>
+                {% if factura.valor_fiscal %}
+                    Si
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>Por favor revisar la información antes de eliminar.</p>
+            <p>Está seguro que desea eliminar este registro?</p>
+            <input type="submit" class"button" value="Confirmar">
+        </form>
+
+{% endblock %}
+
+{% block domready %}
+
+{% endblock %}

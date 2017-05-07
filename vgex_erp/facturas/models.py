@@ -1,6 +1,7 @@
 from django.db import models
 from clientes.models import Cliente
 from params.models import PrecioGalon, Chofer, Camion
+from core.models import SecuenciaBase
 import datetime
 
 
@@ -33,12 +34,18 @@ class SecuenciaFacturas(models.Model):
 	objects = SecuenciaFacturaManager()
 
 
+class SecuenciaFactura(SecuenciaBase):
+	pass
+
+
 class NewFactura(models.Model):
 	fecha = models.DateField()
 	cliente = models.CharField(max_length=100)
 	galones = models.DecimalField(max_digits=7, decimal_places=2, default=0.0)
 	condicion = models.IntegerField(choices=CONDICION_FACTURA_CHOICES)
 	fiscal = models.BooleanField(default=False)
+	chofer = models.ForeignKey(Chofer, related_name='+')
+	camion = models.ForeignKey(Camion, related_name='+')
 
 	def get_cliente(self):
 		try:
@@ -106,3 +113,6 @@ class Factura(models.Model):
 		self.monto = galones * (precio - descuento)
 
 		super(Factura, self).save(*args, **kwargs)
+
+
+
